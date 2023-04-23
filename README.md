@@ -13,11 +13,11 @@ The dataset contains 270 case studies
 ## Project file Structure
 1. Heart.xlsx - Data set from [Kaggle](https://www.kaggle.com/datasets/hephzeebar/heart?resource=download)
 2. Disease.ipynb - Main Notebook
-  
 3. Webform - Folder containing the webapp for doctor's assistance
 
 ## Key takeways from our primary EDA
 - There were no strong relationship between heart disease and the features
+- Machine learning might be the key to uncover potential nonlinear relationships between the variables
 - Reasons why it might be so:
   - Imbalanced dataset
   - Relatively small data size
