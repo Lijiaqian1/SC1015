@@ -16,9 +16,6 @@ from sklearn.multioutput import MultiOutputRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
-import openpyxl
-
-
 app = Flask(__name__)
 bootstrap = Bootstrap5(app)
 
@@ -363,8 +360,6 @@ def index():
         cardiomyopathy = form.dc.data or form.rc.data or form.arvc.data or form.tc.data or form.hc.data
 
         # # Add data to Excel sheet
-        wb = openpyxl.load_workbook('data.xlsx')
-        sheet = wb.active   
         
         row_value = [form.sex.data, form.age.data, form.chest_pain.data,form.shortness_breath.data,
                form.fatigue.data,form.systolic.data,form.diastolic.data,form.heart_rate.data,
@@ -381,9 +376,7 @@ def index():
         app.logger.info(row_value)
         predicted_value, confidence = hdata.KNN_model(row_value)
         app.logger.info(f"predicted_value: {predicted_value}, confidence: {confidence}")
-        sheet.append(row_value)
-        
-        wb.save('data.xlsx')
+
         return render_template('result.html',predicted_value=predicted_value[0],confidence=confidence)
     elif request.method == 'POST':
         app.logger.warn("Validation error! : {}".format(form.errors))
