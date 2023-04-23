@@ -1,0 +1,6 @@
+WTForms==3.0.1
+xgboost==1.7.5
+Flask==2.2.3
+Flask-WTF==1.1.1
+scikit-learn==1.2.1
+Bootstrap-Flask==2.2.0
