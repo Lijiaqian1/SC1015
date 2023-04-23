@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Patient heart disease check up</title>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+        {{ bootstrap.load_css() }}
+
+      </head>
+  <body>
+
+    {% from 'bootstrap5/form.html' import render_field, render_form_row %}
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="javascript:window.location.href=window.location.href">Doctor's Assitance
+          🏥
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="">Home</a>
+            </li>       
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <div class="container-fluid px-4 pt-4 my-4">
+      <h1 class="fw-bold text-center">Patient heart disease check up</h1>
+      <form method="POST" action="/">
+        {{ form.csrf_token }}
+      <div class="container-fluid">
+        {{ render_field(form.sex, class="form-select")}}
+  
+        {{ render_field(form.age)}}
+  
+        {{ render_field(form.systolic)}}
+  
+        {{ render_field(form.diastolic)}}
+  
+        {{ render_field(form.heart_rate)}}
+        
+        {{ render_field(form.cholesterol_level)}}
+  
+        {{ render_field(form.ldl)}}
+  
+        {{ render_field(form.hdl)}}
+  
+
+      </div>
+  
+      <div class="container-fluid">
+        {{ render_form_row([form.chest_pain, form.shortness_breath, form.fatigue, form.lung_sound, form.diabetes]) }}
+        {{ render_form_row([form.atrial_fibrillation, form.mitral_valve_prolapse, form.rheumatic_fever, form.mitral_stenosis,form.aortic_stenosis]) }}
+        {{ render_form_row([form.tricuspid_stenosis, form.pulmonary_stenosis, form.dc, form.hc, form.rc]) }}
+        {{ render_form_row([form.tc, form.du, form.fever, form.chills, form.arvc]) }}
+        {{ render_form_row([form.jp, form.alcoholism, form.hypertension, form.dizziness, form.smoking]) }}
+        {{ render_form_row([form.pi, form.obesity, form.murmur]) }}
+
+      </div>
+      
+      <div class="container-fluid">
+        {{ render_field(form.echocardiogram) }}
+        {{ render_field(form.bc) }}
+        {{ render_field(form.ekg) }}
+        {{ render_field(form.cct) }}
+        {{ render_field(form.cx) }}
+        {{ render_field(form.pft) }}
+        {{ render_field(form.spirometry) }}
+      </div>
+       
+  
+  
+  
+  
+  
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+    
+
+    {{ bootstrap.load_js() }}
+  </body>
+</html>
+
+
